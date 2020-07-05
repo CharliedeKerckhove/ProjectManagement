@@ -4,6 +4,7 @@ import LoginForm from "./components/LoginForm";
 import InputField from "./components/InputField";
 import SubmitButton from "./components/SubmitButton";
 import UserStore from "./components/UserStore";
+import "./css/index.css";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -79,7 +80,7 @@ class App extends React.Component {
 
       return (
         <div className="app">
-          <div className="container">
+          <div className="container-fluid">
             <LoginForm />
           </div>
         </div>

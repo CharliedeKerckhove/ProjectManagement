@@ -1,0 +1,13 @@
+//Variables
+
+body {
+  display: flex;
+}
+
+.loginForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
