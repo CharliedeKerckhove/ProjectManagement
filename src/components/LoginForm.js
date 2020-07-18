@@ -1,7 +1,9 @@
 import React from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
+import LinkButton from "./LinkButton";
 import UserStore from "./UserStore";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,10 +17,7 @@ class LoginForm extends React.Component {
 
   setInputValue(property, val) {
     val = val.trim();
-    // set username and password max length
-    if (val.length > 12) {
-      return;
-    }
+
     this.setState({
       [property]: val,
     });
@@ -75,19 +74,19 @@ class LoginForm extends React.Component {
       <div className="loginPage">
         <h1 className="loginTitle text-center">Portfolio Planner</h1>
         <div className="loginForm m-1">
-          <div className="loginInputs w-100">
+          <div className="loginInputs">
             <InputField
               type="text"
-              containerClass="w-100 my-2"
-              inputClass="w-100 p-1 my-1 border-left-0 border-top-0 border-right-0 border-dark"
+              containerClass="loginInput my-2"
+              inputClass="loginInput p-1 my-1 border-left-0 border-top-0 border-right-0 border-dark"
               placeholder="Username"
               value={this.state.username ? this.state.username : ""}
               onChange={(val) => this.setInputValue("username", val)}
             />
             <InputField
               type="password"
-              containerClass="w-100 my-2"
-              inputClass="w-100 p-1 my-1 border-left-0 border-top-0 border-right-0 border-dark"
+              containerClass="loinInput my-2"
+              inputClass="loginInput p-1 my-1 border-left-0 border-top-0 border-right-0 border-dark"
               placeholder="Password"
               value={this.state.password ? this.state.password : ""}
               onChange={(val) => this.setInputValue("password", val)}
@@ -100,13 +99,15 @@ class LoginForm extends React.Component {
             disabled={this.state.buttonDisabled}
             onClick={() => this.doLogin()}
           />
-          <SubmitButton
-            text="Register"
-            containerClass="w-100 my-1"
-            buttonClass="w-100 btn-outline-primary"
-            disabled={this.state.buttonDisabled}
-            onClick={() => this.goRegister()}
-          />
+          <Router>
+            <LinkButton
+              text="Register"
+              link="/Register"
+              containerClass="w-100 my-1"
+              buttonClass="w-100 btn-outline-primary"
+              disabled={this.state.buttonDisabled}
+            />
+          </Router>
         </div>
       </div>
     );

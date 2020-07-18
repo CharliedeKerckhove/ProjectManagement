@@ -10,4 +10,9 @@ body {
   flex-direction: column;
 }
 
+.loginInputs,
+.loginInput {
+  width: 100%;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
